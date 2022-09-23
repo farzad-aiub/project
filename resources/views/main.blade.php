@@ -81,6 +81,14 @@
             @include('includes.navbar')
             <!-- Content wrapper -->
             <div class="content-wrapper">
+                @if(Session::has('message'))
+
+                    <div class="alert alert-primary alert-dismissible" role="alert" align="center">
+                        {{ Session::get('message') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                        </button>
+                    </div>
+                @endif
                 @yield('container')
                 <div class="content-backdrop fade"></div>
             </div>
