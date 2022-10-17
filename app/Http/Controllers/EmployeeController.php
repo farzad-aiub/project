@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
+use App\Models\Designation;
 use App\Models\Employee;
 use App\Models\EmployeeBankDetails;
 use App\Models\Official;
 use Illuminate\Http\Request;
 use Session;
+use Illuminate\Support\Facades\Http;
 
 class EmployeeController extends Controller
 {
@@ -15,12 +18,25 @@ class EmployeeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+//    public function __construct()
+//    {
+//        $this->middleware('auth');
+//    }
     public function index()
     {
+        $client = new \GuzzleHttp\Client(['verify' =>false]);
+        $response = $client->post('https://spg.com.bd:6314/api/SpgService/GetSessionKey', [
+            'AccessUser' => ['userName'=>'IcbCapitalMg','password'=>'Ic2b7a!5i4al3M'],
+            'strUserId' => 'IcbCapitalMg',
+            'strPassKey' => 'Ic2b7a!5i4al3M',
+            'strRequestId' => '5694195478',
+            'strAmount' => '50',
+            'strTranDate' => '2022-09-29',
+            'strAccounts' => '4412302001450'
+
+        ]);
+        return $response;
+
         $employees=Employee::get();
 
         return view('employee.index',compact('employees'));
@@ -34,7 +50,12 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return  view('employee.create');
+        $departments=Department::get();
+        $designations=Designation::get();
+
+
+//        return $designations;
+        return  view('employee.create',compact('departments','designations'));
     }
 
     /**
@@ -127,11 +148,13 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
+        $departments=Department::get();
+        $designations=Designation::get();
         $official=Official::where('employee_id',$employee->id)->first();
         $bank= EmployeeBankDetails::where('employee_id',$employee->id)->first();
 //        return $bank;
 
-        return  view('employee.create',compact('employee','official','bank'));
+        return  view('employee.create',compact('employee','official','bank','departments','designations'));
     }
 
     /**
