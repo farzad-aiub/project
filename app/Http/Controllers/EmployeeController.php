@@ -24,18 +24,6 @@ class EmployeeController extends Controller
 //    }
     public function index()
     {
-        $client = new \GuzzleHttp\Client(['verify' =>false]);
-        $response = $client->post('https://spg.com.bd:6314/api/SpgService/GetSessionKey', [
-            'AccessUser' => ['userName'=>'IcbCapitalMg','password'=>'Ic2b7a!5i4al3M'],
-            'strUserId' => 'IcbCapitalMg',
-            'strPassKey' => 'Ic2b7a!5i4al3M',
-            'strRequestId' => '5694195478',
-            'strAmount' => '50',
-            'strTranDate' => '2022-09-29',
-            'strAccounts' => '4412302001450'
-
-        ]);
-        return $response;
 
         $employees=Employee::get();
 
@@ -50,12 +38,13 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        $departments=Department::get();
-        $designations=Designation::get();
+//        $departments=Department::get();
+//        $designations=Designation::get();
 
 
 //        return $designations;
-        return  view('employee.create',compact('departments','designations'));
+        return  view('employee.create');
+//        return  view('employee.create',compact('departments','designations'));
     }
 
     /**

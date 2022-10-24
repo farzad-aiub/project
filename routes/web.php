@@ -3,6 +3,8 @@
 
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\AgentController;
 use Illuminate\Support\Facades\Route;
 //use App\Http\Controllers\TestController;
 /*
@@ -29,3 +31,10 @@ Route::resource('employees', EmployeeController::class);
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/company', [App\Http\Controllers\CompanyController::class, 'index'])->name('company.index');
+Route::post('/company/store', [App\Http\Controllers\CompanyController::class, 'store'])->name('company.store');
+
+Route::get('/agent', [App\Http\Controllers\AgentController::class, 'index'])->name('agent.index');
+Route::post('/agent/store', [App\Http\Controllers\AgentController::class, 'store'])->name('agent.store');
+
+Route::get('/events', [App\Http\Controllers\EventController::class, 'index'])->name('event.index');

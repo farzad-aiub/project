@@ -124,25 +124,25 @@
                                     <input class="form-control" type="text" id="emp_id" name="emp_id"   @isset($official) value="{{$official->emp_id}}" @endisset/>
                                 </div>
 
-                                <div class="mb-3 col-md-6">
-                                    <label for="department" class="form-label">Department <span class="required">* </span></label>
+{{--                                <div class="mb-3 col-md-6">--}}
+{{--                                    <label for="department" class="form-label">Department <span class="required">* </span></label>--}}
 {{--                                    <input class="form-control" type="text" id="department" name="department"  @isset($official) value="{{$official->department}}" @endisset/>--}}
-                                    <select class="form-control" name="department">
-                                        @foreach($departments as $dep)
-                                            <option value="{{$dep->id}}">{{$dep->department_name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+{{--                                    <select class="form-control" name="department">--}}
+{{--                                        @foreach($departments as $dep)--}}
+{{--                                            <option value="{{$dep->id}}">{{$dep->department_name}}</option>--}}
+{{--                                        @endforeach--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
 
-                                <div class="mb-3 col-md-6">
-                                    <label for="designation" class="form-label">Designation <span class="required">* </span></label>
+{{--                                <div class="mb-3 col-md-6">--}}
+{{--                                    <label for="designation" class="form-label">Designation <span class="required">* </span></label>--}}
 {{--                                    <input class="form-control" type="text" id="designation" name="designation"  @isset($official) value="{{$official->designation}}" @endisset/>--}}
-                                    <select class="form-control" name="designation">
-                                        @foreach($designations as $dep)
-                                            <option value="{{$dep->id}}">{{$dep->designation_name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+{{--                                    <select class="form-control" name="designation">--}}
+{{--                                        @foreach($designations as $dep)--}}
+{{--                                            <option value="{{$dep->id}}">{{$dep->designation_name}}</option>--}}
+{{--                                        @endforeach--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
 
                                 <div class="mb-3 col-md-6">
                                     <label for="join_dt" class="form-label">Date of Joining</label>

@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 //Route::get('/', 'APIAuthController@test');
+Route::get('/events', [App\Http\Controllers\EventController::class, 'allEvents']);
+Route::get('/event/{id}', [App\Http\Controllers\EventController::class, 'singleEvent']);
 Route::get('/', [App\Http\Controllers\APIAuthController::class, 'test']);
 Route::group([
 
@@ -31,6 +33,7 @@ Route::group([
 //    Route::post('login', 'AuthController@login');
     Route::post('/login', [App\Http\Controllers\APIAuthController::class, 'login']);
     Route::post('/me', [App\Http\Controllers\APIAuthController::class, 'me']);
+
 //    Route::post('logout', 'AuthController@logout');
 //    Route::post('refresh', 'AuthController@refresh');
 //    Route::post('me', 'AuthController@me');
